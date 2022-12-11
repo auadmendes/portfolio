@@ -1,10 +1,13 @@
 import { SocialIcon } from 'react-social-icons'
 import { motion } from "framer-motion"
 import Link from 'next/link'
+import { ISocial } from '../../typings'
 
-type Props = {}
+type Props = {
+  socials: ISocial[];
+}
 
-export function Header({ }: Props) {
+export function Header({ socials }: Props) {
   return (
     <header className='sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-50
     xl:items-center '>
@@ -24,26 +27,15 @@ export function Header({ }: Props) {
         }}
         className='flex flex-row items-center'>
         {/* social icons */}
-        <SocialIcon
-          url='https://github.com/auadmendes'
-          fgColor='gray'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          url='https://www.linkedin.com/in/luciano-mendes-horta/'
-          fgColor='gray'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          url='https://www.facebook.com/luciano.auad'
-          fgColor='gray'
-          bgColor='transparent'
-        />
-        <SocialIcon
-          url='https://twitter.com/AuadLuciano'
-          fgColor='gray'
-          bgColor='transparent'
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social.id}
+            url={social.url}
+            fgColor='gray'
+            bgColor='transparent'
+          />
+        ))}
+
       </motion.div>
 
       <motion.div

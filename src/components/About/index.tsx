@@ -1,9 +1,13 @@
 import { motion } from "framer-motion"
+import { urlFor } from "../../../sanity";
+import { IPageInfo } from "../../typings"
 
 
-type Props = {}
+type Props = {
+  pageInfo: IPageInfo;
+}
 
-export function About({ }: Props) {
+export function About({ pageInfo }: Props) {
 
   return (
     <motion.div
@@ -31,7 +35,7 @@ export function About({ }: Props) {
           opacity: 1
         }}
         viewport={{ once: true }}
-        src="https://avatars.githubusercontent.com/u/5294488?v=4"
+        src={urlFor(pageInfo?.profilePic).url()}
         className="mb-0 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover
           md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px] transition-all"
       />
@@ -40,10 +44,7 @@ export function About({ }: Props) {
         <h4 className="text-4xl font-semibold">
           Here is a <span className="underline decoration-cyan-200/50">little</span> background
         </h4>
-        <p className=" text-sm">
-          I am Luciano Mendes, Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique alias suscipit quae, harum optio consequuntur fuga dignissimos veniam perspiciatis totam, cumque commodi! Unde, est amet magni aliquid odit corrupti eius Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          I am Luciano Mendes, Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique alias suscipit quae, harum optio consequuntur fuga dignissimos veniam perspiciatis totam, cumque commodi! Unde, est amet magni aliquid odit corrupti eius Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        </p>
+        <p className=" text-sm">{pageInfo.backgroundInformation}</p>
       </div>
 
     </motion.div>

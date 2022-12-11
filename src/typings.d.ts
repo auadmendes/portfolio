@@ -26,6 +26,7 @@ export interface IPageInfo extends SanityBody {
 
 export interface ITechnology extends SanityBody {
   _type: "skill";
+  id: string;
   image: IImage;
   progress: number;
   title: string;
@@ -33,6 +34,7 @@ export interface ITechnology extends SanityBody {
 
 export interface ISkill extends SanityBody {
   _type: "skill";
+  id: string;
   image: IImage;
   progress: number;
   title: string;
@@ -40,10 +42,12 @@ export interface ISkill extends SanityBody {
 
 export interface IExperience extends SanityBody {
   _type: "experience";
+  id: string;
   company: string;
   companyImage: IImage;
   dateStarted: string;
-  isCurrentlyWorkingHere: boolean;
+  dateEnded: string;
+  isCurrentWorkingHere: boolean;
   jobTitle: string;
   points: string[];
   technologies: ITechnology[];
@@ -51,6 +55,7 @@ export interface IExperience extends SanityBody {
 
 export interface IProject extends SanityBody {
   _type: "projects";
+  id: string;
   title: string;
   image: IImage;
   linkToBuild: string;
@@ -60,6 +65,7 @@ export interface IProject extends SanityBody {
 
 export interface ISocial extends SanityBody {
   _type: "social",
+  id: string;
   title: string;
   url: string;
 }

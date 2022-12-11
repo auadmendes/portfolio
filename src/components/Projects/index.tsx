@@ -1,15 +1,17 @@
 import { motion } from "framer-motion"
 
 import Image from "next/image"
+import { urlFor } from "../../../sanity"
+import { IProject } from "../../typings"
 
-type Props = {}
+type Props = {
+  projects: IProject[]
+}
 
 
 
-export function Projects({ }: Props) {
+export function Projects({ projects }: Props) {
 
-
-  const projects = [1, 2, 3, 4, 5]
 
   return (
     <motion.div
@@ -25,7 +27,7 @@ export function Projects({ }: Props) {
       <div className="relative w-full flex overflow-x-scroll overflow-y-hidden
         snap-x snap-mandatory z-20 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-cyan-300/80"
       >
-        {projects.map((project, i) => (
+        {projects?.map((project, i) => (
           <div
             key=""
             className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5
@@ -40,8 +42,8 @@ export function Projects({ }: Props) {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW9iaWxlJTIwYXBwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60"
-              className="object-cover"
+              src={urlFor(project?.image).url()}
+              className="object-cover max-w-full max-h-96"
             />
 
             {/* <Image src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW9iaWxlJTIwYXBwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60" width={300} height={300} alt=""
@@ -49,12 +51,22 @@ export function Projects({ }: Props) {
             /> */}
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
-                <span className="underline decoration-cyan-400/20">Case Study {i + 1} of {projects.length}</span> UPS Clone
+                <span className="underline decoration-cyan-400/20">Case Study {i + 1} of {projects.length}</span> {project.title}
               </h4>
 
-              <p className="text-lg text-center md:text-left">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur ea vitae facilis soluta quaerat amet expedita, velit, molestiae nihil libero aliquam qui reprehenderit quasi voluptatem aperiam architecto id voluptatum odio.
-              </p>
+              <div className="flex items-center space-x-2 justify-center">
+                {project?.technologies.map((technology) => (
+                  <Image
+                    className='rounded-md h-8 w-8'
+                    key={technology.id}
+                    src={urlFor(technology?.image).url()}
+                    height={100}
+                    width={100}
+                    alt=""
+                  />
+                ))}
+              </div>
+              <p className="text-lg text-center md:text-left">{project.summary}</p>
             </div>
           </div>
         ))}

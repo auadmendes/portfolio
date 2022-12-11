@@ -11,36 +11,59 @@ import { WorkExperience } from "../components/WorkExperience";
 
 import hLogoImage from '../../public/hLogo.svg'
 
-export default function Home() {
+import { GetStaticProps } from "next";
+import { IExperience, IPageInfo, IProject, ISkill, ISocial } from "../typings";
+import { fetchPageInfo } from "../utils/fetchPageInfo";
+import { fetchExperiences } from "../utils/fetchExperience";
+import { fetchProjects } from "../utils/fetchProjects";
+import { fetchSocials } from "../utils/fetchSocial";
+import { fetchSkills } from "../utils/fetchSkills";
+
+type Props = {
+  pageInfo: IPageInfo;
+  experiences: IExperience[];
+  skills: ISkill[];
+  projects: IProject[];
+  socials: ISocial[];
+}
+
+
+export default function Home({
+  pageInfo,
+  experiences,
+  skills,
+  projects,
+  socials,
+}: Props) {
   return (
     <div className="h-screen snap-y snap-mandatory overflow-y-scroll z-0 
     overflow-x-hidden transition-all scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-300/80"
     >
       <Head>
-        <title>Luciano | Portfolio</title>
+        <title>{pageInfo.name} | Portfolio</title>
       </Head>
 
-      <Header />
+      <Header socials={socials} />
 
       <section id="hero" className="snap-start">
-        <Hero />
+        <Hero pageInfo={pageInfo} />
       </section>
 
       <section id="about" className="snap-center">
-        <About />
+        <About pageInfo={pageInfo} />
       </section>
 
       <section id="experience" className="snap-center">
-        <WorkExperience />
+        <WorkExperience experiences={experiences} />
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills />
+        <Skills skills={skills} />
       </section>
 
 
       <section id="projects" className="snap-start">
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       <section id="contact" className="snap-start">
@@ -57,4 +80,23 @@ export default function Home() {
 
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: IPageInfo = await fetchPageInfo()
+  const experiences: IExperience[] = await fetchExperiences()
+  const skills: ISkill[] = await fetchSkills()
+  const projects: IProject[] = await fetchProjects()
+  const socials: ISocial[] = await fetchSocials()
+
+  return {
+    props: {
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials,
+    },
+    revalidate: 60 * 10
+  }
 }

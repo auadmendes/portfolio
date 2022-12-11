@@ -1,7 +1,12 @@
 import { motion } from "framer-motion"
+import { ISkill } from "../../typings"
 import { Skill } from "../Skill"
 
-export function Skills() {
+type Props = {
+  skills: ISkill[];
+}
+
+export function Skills({ skills }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,22 +21,17 @@ export function Skills() {
       </h3>
 
       <h3
-        className="absolute top-36 uppercase tracking-[3px] text-gray-300 text-sm">Hover over a skill for currency proficiency
+        className="absolute top-36 uppercase tracking-[3px] text-gray-300 text-sm">Hover over a skill for current proficiency
       </h3>
 
-      <div className="grid grid-cols-4 gap-5 items-center justify-center">
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
+      <div className="grid grid-cols-5 gap-5">
+        {skills?.slice(0, skills.length / 2).map((skill) => (
+          <Skill key={skill.id} skill={skill} />
+        ))}
+
+        {skills?.slice(skills.length / 2, skills.length).map((skill) => (
+          <Skill key={skill.id} skill={skill} directionLeft />
+        ))}
 
       </div>
     </motion.div>
