@@ -61,7 +61,6 @@ export default function Home({
         <Skills skills={skills} />
       </section>
 
-
       <section id="projects" className="snap-start">
         <Projects projects={projects} />
       </section>
