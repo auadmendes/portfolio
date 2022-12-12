@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  autoprefixer: {},
   images: {
     domains: [
       'media.graphassets.com',
