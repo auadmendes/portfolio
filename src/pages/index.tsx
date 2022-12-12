@@ -81,7 +81,7 @@ export default function Home({
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const pageInfo: IPageInfo = await fetchPageInfo()
   const experiences: IExperience[] = await fetchExperiences()
   const skills: ISkill[] = await fetchSkills()
