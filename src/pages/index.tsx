@@ -9,6 +9,7 @@ import { Projects } from "../components/Projects";
 import { Skills } from "../components/Skills";
 import { WorkExperience } from "../components/WorkExperience";
 
+
 import hLogoImage from '../../public/hLogo.svg'
 
 import { GetServerSideProps, GetStaticProps } from "next";
