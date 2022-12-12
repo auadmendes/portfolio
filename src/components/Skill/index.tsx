@@ -30,7 +30,7 @@ export function Skill({ directionLeft, skill }: Props) {
       md:h-28 xl:w-32 xl:h-32 rounded-full z-0">
         <div className="flex items-center justify-center h-full">
           <p title={String(skill.progress)}
-            className="flex items-center text-5xl font-bold text-gray-700 opacity-100">
+            className="flex items-center text-5xl bg-gray-800 py-8 px-2 rounded-full font-bold text-gray-100 opacity-100">
 
             {String(skill.progress)}%
 
