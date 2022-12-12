@@ -8,7 +8,7 @@ export default defineConfig({
   title: 'Portfolio',
 
   projectId: 'lip8p7sh',
-  dataset: 'production',
+  dataset: 'test',
 
   plugins: [deskTool(), visionTool()],
 
