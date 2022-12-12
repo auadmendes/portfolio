@@ -69,13 +69,13 @@ export default function Home({
         <ContactMe />
       </section>
 
-      {/* <Link href={'#hero'}>
+      <Link href={'#hero'}>
         <footer className="sticky bottom-5 w-full cursor-pointer">
           <div className="flex items-center justify-center">
             <Image src={hLogoImage} alt="" className="h-10 w-10 filter grayscale hover:grayscale-0 " />
           </div>
         </footer>
-      </Link> */}
+      </Link>
 
     </div>
   )
