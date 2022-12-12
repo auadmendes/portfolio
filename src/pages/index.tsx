@@ -11,7 +11,7 @@ import { WorkExperience } from "../components/WorkExperience";
 
 import hLogoImage from '../../public/hLogo.svg'
 
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import { IExperience, IPageInfo, IProject, ISkill, ISocial } from "../typings";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchExperiences } from "../utils/fetchExperience";
@@ -81,7 +81,7 @@ export default function Home({
   )
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const pageInfo: IPageInfo = await fetchPageInfo()
   const experiences: IExperience[] = await fetchExperiences()
   const skills: ISkill[] = await fetchSkills()
@@ -95,7 +95,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       projects,
       socials,
-    },
-    revalidate: 60 * 10
+    }
   }
 }
