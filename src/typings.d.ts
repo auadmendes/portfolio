@@ -1,71 +1,85 @@
-interface SanityBody {
-  _createdAt: string;
-  _rev: string;
-  _updatedAt: string;
-}
 
-interface IImage {
-  _type: "image",
-  asset: {
-    _ref: string;
-    _type: "reference"
-  };
-}
 
-export interface IPageInfo extends SanityBody {
-  _type: "pageInfo",
+export interface IHero {
+  _type: "pageInfo";
+  id: string;
+  name: string;
   address: string,
   backgroundInformation: string;
   email: string;
   role: string;
-  heroImage: IImage;
-  name: string;
   phoneNumber: string;
-  profilePic: IImage;
+  image: {
+    url: string;
+  };
+  profilePicture: {
+    url: string;
+  };
+  // socialIcon: {
+  //   url: string;
+  // }
 }
 
-export interface ITechnology extends SanityBody {
+export interface ISkillProps   {
   _type: "skill";
   id: string;
-  image: IImage;
+  skillImage: {
+    url: string;
+  };
   progress: number;
   title: string;
 }
 
-export interface ISkill extends SanityBody {
-  _type: "skill";
-  id: string;
-  image: IImage;
-  progress: number;
-  title: string;
-}
-
-export interface IExperience extends SanityBody {
-  _type: "experience";
-  id: string;
-  company: string;
-  companyImage: IImage;
-  dateStarted: string;
-  dateEnded: string;
-  isCurrentWorkingHere: boolean;
-  jobTitle: string;
-  points: string[];
-  technologies: ITechnology[];
-}
-
-export interface IProject extends SanityBody {
-  _type: "projects";
-  id: string;
-  title: string;
-  image: IImage;
-  linkToBuild: string;
-  summary: string; 
-  technologies: ITechnology[];
-}
-
-export interface ISocial extends SanityBody {
+export interface ISocialProps {
   _type: "social",
   id: string;
   title: string;
   url: string;
+}
+
+export interface IExperienceProps {
+  _type: "experience";
+  id: string;
+  jobTitle: string;
+  isCurrentWorkingHere: boolean;
+  company: string;
+  dateStarted: string;
+  dateEnded: string;
+  companyImage: {
+    url: string;
+  }
+  experiencePoints: [
+   {
+    id: string;
+    point: string;
+   }
+  ]
+  experienceSkills: [
+    {
+      id: string;
+      skillImage: {
+        id: string;
+        url: string;
+      }
+    }
+  ]
+}
+
+export interface IProjectProps {
+  _type: "projects";
+  id: string;
+  title: string;
+  image: {
+    url: string;
+  };
+  linkToBuild: string;
+  summary: string; 
+  skills: [
+    {
+      id: string;
+      skillImage: {
+        url: string;
+      }
+    }
+  ]
 }
