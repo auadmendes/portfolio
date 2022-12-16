@@ -24,11 +24,11 @@ export function Skill({ directionLeft, skill }: Props) {
         filter group-hover:grayscale-0 group-hover:bg-gray-500"
       />
       <div className="absolute opacity-0 group-hover:opacity-100 
-      transition-all duration-300 ease-in-out h-24 w-24 rounded-full z-0">
+      transition-all duration-300 ease-in-out h-20 w-20 rounded-full z-0">
         <div className="flex items-center justify-center h-full">
           <p title={String(skill.progress)}
-            className="flex items-center text-3xl bg-gray-800 
-            py-4 px-2 rounded-full font-bold text-gray-100 opacity-100">
+            className="flex items-center text-2xl bg-gray-800 
+            py-8 px-2 rounded-full font-bold text-gray-100 opacity-100">
 
             {String(skill.progress)}%
 

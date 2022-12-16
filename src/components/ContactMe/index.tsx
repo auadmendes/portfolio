@@ -20,8 +20,8 @@ export function ContactMe() {
   }
 
   return (
-    <div className="h-screen flex relative overflow-hidden flex-col text-center    
-      md:flex-row max-w-full md:text-left justify-evenly mx-auto items-center scroll-smooth">
+    <div className="h-screen w-full bg-yellow-100 flex relative overflow-hidden flex-col text-center 
+    px-40 mb-24 md:flex-row max-w-full md:text-left justify-evenly mx-auto items-center scroll-smooth">
 
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500">
         Contact
@@ -58,7 +58,7 @@ export function ContactMe() {
             </div>
             <input {...register('subject')} className='contactInput' placeholder='Subject' type="text" />
             <textarea {...register('message')} className='contactInput' placeholder='Message' />
-            <button className='bg-cyan-400 py-5 px-10 rounded-md text-gray-800 font-bold'>
+            <button className='bg-cyan-400 py-5 px-10 rounded-md text-gray-800 font-bold mb-64'>
               Submit
             </button>
           </form>
