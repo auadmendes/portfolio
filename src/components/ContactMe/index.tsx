@@ -20,7 +20,7 @@ export function ContactMe() {
   }
 
   return (
-    <div className="h-screen w-full bg-yellow-100 flex relative overflow-hidden flex-col text-center 
+    <div className="h-screen w-full flex relative overflow-hidden flex-col text-center 
     px-40 mb-24 md:flex-row max-w-full md:text-left justify-evenly mx-auto items-center scroll-smooth">
 
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500">
@@ -33,7 +33,7 @@ export function ContactMe() {
           <span className="decoration-cyan-400/50 underline">Lets Talk.</span>
         </h4>
 
-        <div className='space-y-10'>
+        <div className='flex flex-col justify-evenly px-5 space-y-4'>
 
           <div className='flex items-center space-x-5 justify-center'>
             <PhoneIcon className='text-cyan-400 h-7 w-7 animate-pulse' />
@@ -51,7 +51,7 @@ export function ContactMe() {
             <p className='text-2xl'>Porto Canoa | Serra</p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 w-fit mx-auto'>
+          <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 px-0  mb-24'>
             <div className='flex space-x-2'>
               <input {...register('name')} className='contactInput' placeholder='Name' type="text" />
               <input {...register('email')} className='contactInput' placeholder='e-mail' type="text" />
