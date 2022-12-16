@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
-import { getSkill } from "../../services/getSkills";
-import { ISkill, ISkillProps } from "../../typings"
+import { ISkillProps } from "../../typings"
 import { Skill } from "../Skill"
 
 type Props = {

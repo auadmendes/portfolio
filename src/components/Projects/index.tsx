@@ -7,11 +7,7 @@ type Props = {
   projects: IProjectProps[]
 }
 
-
-
 export function Projects({ projects }: Props) {
-
-
   return (
     <motion.div
       initial={{ opacity: 0 }}

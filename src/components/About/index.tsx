@@ -1,6 +1,5 @@
 import { motion } from "framer-motion"
-import { urlFor } from "../../../sanity";
-import { IHero, IPageInfo } from "../../typings"
+import { IHero } from "../../typings"
 
 
 type Props = {
