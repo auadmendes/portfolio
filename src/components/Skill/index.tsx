@@ -9,7 +9,7 @@ type Props = {
 export function Skill({ directionLeft, skill }: Props) {
 
   return (
-    <div className="group relative flex cursor-pointer">
+    <div className="w-full group relative flex cursor-pointer">
       <motion.img
         initial={{
           x: directionLeft ? -200 : 200,
@@ -18,9 +18,8 @@ export function Skill({ directionLeft, skill }: Props) {
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
         src={skill?.skillImage.url}
-        className="rounded-full border border-gray-500 object-cover 
-        object-center 
-        w-20 h-20
+        className="rounded-full border border-gray-500 
+        object-cover object-center w-20 h-20 lg:w-20 lg:-h-28
      
         filter group-hover:grayscale-0 group-hover:bg-gray-500"
       />
