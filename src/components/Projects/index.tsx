@@ -33,6 +33,7 @@ export function Projects({ projects }: Props) {
               alt={project?.title}
               width={300}
               height={300}
+              className="object-contain w-full h-96"
             />
             {/* <motion.img
               initial={{
