@@ -14,7 +14,7 @@ export function Skills({ skills }: Props) {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
       className="flex relative overflow-hidden flex-col text-center 
-    md:text-left md:flex-row max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 
+    md:text-left md:flex-row max-w-[2000px] xl:px-8 min-h-screen justify-center xl:space-y-0 
     mx-auto items-center scroll-smooth">
 
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500">
