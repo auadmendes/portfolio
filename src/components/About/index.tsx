@@ -1,10 +1,10 @@
 import { motion } from "framer-motion"
 import { urlFor } from "../../../sanity";
-import { IPageInfo } from "../../typings"
+import { IHero, IPageInfo } from "../../typings"
 
 
 type Props = {
-  pageInfo: IPageInfo;
+  pageInfo: IHero;
 }
 
 export function About({ pageInfo }: Props) {
@@ -35,7 +35,7 @@ export function About({ pageInfo }: Props) {
           opacity: 1
         }}
         viewport={{ once: true }}
-        src={urlFor(pageInfo?.profilePic).url()}
+        src={pageInfo?.profilePicture.url}
         className="mb-0 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover
           md:rounded-lg md:w-64 md:h-95 xl:w-[500px] xl:h-[600px] transition-all"
       />

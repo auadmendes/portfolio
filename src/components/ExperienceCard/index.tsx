@@ -1,10 +1,9 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { urlFor } from "../../../sanity";
-import { IExperience } from "../../typings"
+import { IExperienceProps } from "../../typings"
 
 type Props = {
-  experience: IExperience;
+  experience: IExperienceProps;
 }
 
 export function ExperienceCard({ experience }: Props) {
@@ -22,7 +21,7 @@ export function ExperienceCard({ experience }: Props) {
         viewport={{ once: true }}
         className="w-32 h-32 xl:w-[200px] xl:h-[200px] 
         transition-all object-cover object-center"
-        src={urlFor(experience?.companyImage).url()}
+        src={experience?.companyImage.url}
         alt="logo"
       />
 
@@ -30,11 +29,12 @@ export function ExperienceCard({ experience }: Props) {
         <h4 className="text-4xl rounded-md font-light">{experience.jobTitle}</h4>
         <p className="font-bold text-2xl mt-1">{experience.company}</p>
         <div className="flex space-x-2 my-2">
-          {experience?.technologies.map((technology) => (
+          {experience.experienceSkills.map((skill) => (
+
             <Image
-              key={technology.id}
+              key={skill.id}
               className="h-10 w-10 rounded-full object-cover object-center"
-              src={urlFor(technology?.image).url()}
+              src={skill.skillImage.url}
               alt=""
               width={150}
               height={150}
@@ -49,8 +49,8 @@ export function ExperienceCard({ experience }: Props) {
         </p>
 
         <ul className="list-disc space-y-4 text-lg text-left text-gray-300 h-80">
-          {experience.points.map((point) => (
-            <li key={point}>{point}</li>
+          {experience.experiencePoints.map((point) => (
+            <li key={point.id}>{point.point}</li>
           ))}
         </ul>
       </div>

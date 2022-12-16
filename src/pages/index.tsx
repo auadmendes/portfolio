@@ -12,45 +12,49 @@ import { WorkExperience } from "../components/WorkExperience";
 
 import hLogoImage from '../../public/hLogo.svg'
 
-import { GetServerSideProps, GetStaticProps } from "next";
-import { IExperience, IPageInfo, IProject, ISkill, ISocial } from "../typings";
-import { fetchPageInfo } from "../utils/fetchPageInfo";
-import { fetchExperiences } from "../utils/fetchExperience";
-import { fetchProjects } from "../utils/fetchProjects";
-import { fetchSocials } from "../utils/fetchSocial";
-import { fetchSkills } from "../utils/fetchSkills";
+import { GetServerSideProps } from "next";
+import { IExperienceProps, IHero, IProjectProps, ISkillProps, ISocialProps } from "../typings";
+
+import { getSkill } from "../services/getSkills";
+import { getHero } from "../services/getHero";
+import { getSocials } from "../services/getSocial";
+import { getExperience } from "../services/getExperience";
+import { getProject } from "../services/getProject";
 
 type Props = {
-  pageInfo: IPageInfo;
-  experiences: IExperience[];
-  skills: ISkill[];
-  projects: IProject[];
-  socials: ISocial[];
+  hero: IHero;
+
+  experiences: IExperienceProps[];
+  skillsData: ISkillProps[];
+  projects: IProjectProps[];
+  socials: ISocialProps[];
 }
 
 export default function Home({
-  pageInfo,
+  hero,
   experiences,
-  skills,
+  skillsData,
   projects,
   socials,
 }: Props) {
+
+
   return (
     <div className="h-screen snap-y snap-mandatory overflow-y-scroll z-0 
     overflow-x-hidden transition-all scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-cyan-300/80"
     >
       <Head>
-        <title>{pageInfo.name} | Portfolio</title>
+        <title>{`${hero.name} | Portfolio`}</title>
       </Head>
 
       <Header socials={socials} />
 
       <section id="hero" className="snap-start">
-        <Hero pageInfo={pageInfo} />
+        <Hero hero={hero} />
       </section>
 
       <section id="about" className="snap-center">
-        <About pageInfo={pageInfo} />
+        <About pageInfo={hero} />
       </section>
 
       <section id="experience" className="snap-center">
@@ -58,7 +62,7 @@ export default function Home({
       </section>
 
       <section id="skills" className="snap-start">
-        <Skills skills={skills} />
+        <Skills skills={skillsData} />
       </section>
 
       <section id="projects" className="snap-start">
@@ -82,17 +86,18 @@ export default function Home({
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const pageInfo: IPageInfo = await fetchPageInfo()
-  const experiences: IExperience[] = await fetchExperiences()
-  const skills: ISkill[] = await fetchSkills()
-  const projects: IProject[] = await fetchProjects()
-  const socials: ISocial[] = await fetchSocials()
+
+  const skillsData: ISkillProps[] = await getSkill()
+  const hero: IHero = await getHero()
+  const socials: ISocialProps = await getSocials()
+  const experiences: IExperienceProps[] = await getExperience()
+  const projects: IProjectProps[] = await getProject()
 
   return {
     props: {
-      pageInfo,
+      hero,
       experiences,
-      skills,
+      skillsData,
       projects,
       socials,
     }

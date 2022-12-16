@@ -1,10 +1,12 @@
 import { motion } from "framer-motion"
-import { ISkill } from "../../typings"
+import { getSkill } from "../../services/getSkills";
+import { ISkill, ISkillProps } from "../../typings"
 import { Skill } from "../Skill"
 
 type Props = {
-  skills: ISkill[];
+  skills: ISkillProps[];
 }
+
 
 export function Skills({ skills }: Props) {
   return (
@@ -25,13 +27,16 @@ export function Skills({ skills }: Props) {
       </h3>
 
       <div className="grid grid-cols-5 gap-5">
-        {skills?.slice(0, skills.length / 2).map((skill) => (
+        {skills?.map((skill) => (
+          <Skill key={skill.id} skill={skill} />
+        ))}
+        {/* {skills?.slice(0, skills.length / 2).map((skill) => (
           <Skill key={skill.id} skill={skill} />
         ))}
 
         {skills?.slice(skills.length / 2, skills.length).map((skill) => (
           <Skill key={skill.id} skill={skill} directionLeft />
-        ))}
+        ))} */}
 
       </div>
     </motion.div>

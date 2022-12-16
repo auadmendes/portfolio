@@ -1,9 +1,9 @@
 import { motion } from "framer-motion"
-import { IExperience } from "../../typings"
+import { IExperienceProps } from "../../typings"
 import { ExperienceCard } from "../ExperienceCard"
 
 type Props = {
-  experiences: IExperience[];
+  experiences: IExperienceProps[];
 }
 
 export function WorkExperience({ experiences }: Props) {
@@ -25,8 +25,6 @@ export function WorkExperience({ experiences }: Props) {
         {experiences.map((experience) => (
           <ExperienceCard key={experience.id} experience={experience} />
         ))}
-
-
       </div>
     </motion.div>
   )

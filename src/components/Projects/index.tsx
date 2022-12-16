@@ -1,11 +1,10 @@
 import { motion } from "framer-motion"
 
 import Image from "next/image"
-import { urlFor } from "../../../sanity"
-import { IProject } from "../../typings"
+import { IProjectProps } from "../../typings"
 
 type Props = {
-  projects: IProject[]
+  projects: IProjectProps[]
 }
 
 
@@ -42,24 +41,20 @@ export function Projects({ projects }: Props) {
               transition={{ duration: 1.2 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              src={urlFor(project?.image).url()}
+              src={project?.image.url}
               className="object-cover max-w-full max-h-96"
             />
-
-            {/* <Image src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW9iaWxlJTIwYXBwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60" width={300} height={300} alt=""
-              className="h-[250px] w-[600px] object-cover"
-            /> */}
             <div className="space-y-10 px-0 md:px-10 max-w-6xl">
               <h4 className="text-4xl font-semibold text-center">
                 <span className="underline decoration-cyan-400/20">Case Study {i + 1} of {projects.length}</span> {project.title}
               </h4>
 
               <div className="flex items-center space-x-2 justify-center">
-                {project?.technologies.map((technology) => (
+                {project?.skills.map((skill) => (
                   <Image
                     className='rounded-md h-8 w-8'
-                    key={technology.id}
-                    src={urlFor(technology?.image).url()}
+                    key={skill.id}
+                    src={skill?.skillImage.url}
                     height={100}
                     width={100}
                     alt=""

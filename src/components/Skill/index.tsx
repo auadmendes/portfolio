@@ -1,13 +1,13 @@
 import { motion } from "framer-motion"
-import { urlFor } from "../../../sanity";
-import { ISkill } from "../../typings";
+import { ISkillProps } from "../../typings";
 
 type Props = {
   directionLeft?: boolean;
-  skill: ISkill;
+  skill: ISkillProps;
 }
 
 export function Skill({ directionLeft, skill }: Props) {
+
   return (
     <div className="group relative flex cursor-pointer">
       <motion.img
@@ -17,7 +17,7 @@ export function Skill({ directionLeft, skill }: Props) {
         }}
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
-        src={urlFor(skill?.image).url()}
+        src={skill?.skillImage.url}
         className="rounded-full border border-gray-500 object-cover 
         object-center 
         w-8 h-8 
