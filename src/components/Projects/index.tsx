@@ -13,7 +13,7 @@ export function Projects({ projects }: Props) {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="h-screen flex relative overflow-hidden flex-col text-center    
+      className="h-screen flex relative overflow-hidden flex-col text-center px-0
     md:flex-row max-w-full justify-evenly mx-auto items-center scroll-smooth">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500">
         Projects
@@ -25,10 +25,9 @@ export function Projects({ projects }: Props) {
         {projects?.map((project, i) => (
           <div
             key=""
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5
-          items-center justify-center p-20 md:p-44 h-screen"
+            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-0
+          items-center justify-center p-6 md:p-44 h-screen"
           >
-
             <motion.img
               initial={{
                 y: -300,
@@ -38,10 +37,10 @@ export function Projects({ projects }: Props) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               src={project?.image.url}
-              className="object-cover max-w-full max-h-96"
+              className="object-contain w-full h-96"
             />
-            <div className="space-y-10 px-0 md:px-10 max-w-6xl">
-              <h4 className="text-4xl font-semibold text-center">
+            <div className="space-y-6 px-0 md:px-2 max-w-6xl">
+              <h4 className="text-2xl lg:text-4xl font-semibold text-center">
                 <span className="underline decoration-cyan-400/20">Case Study {i + 1} of {projects.length}</span> {project.title}
               </h4>
 
@@ -57,7 +56,7 @@ export function Projects({ projects }: Props) {
                   />
                 ))}
               </div>
-              <p className="text-lg text-center md:text-left">{project.summary}</p>
+              <p className="text-sm lg:text-lg text-center md:text-left sm:text-sm">{project.summary}</p>
             </div>
           </div>
         ))}
