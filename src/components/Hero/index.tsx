@@ -33,7 +33,7 @@ export function Hero({ hero }: Props) {
       <div className='z-20'>
         <h2 className='text-sm uppercase text-gray-500 tracking-[15px]'>{hero?.role}</h2>
         <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
-          <span className='mr-3'>{text}</span>
+          <span className='mr-3 text-2xl lg:text-6xl'>{text}</span>
           <Cursor />
         </h1>
         <div className='pt-5'>

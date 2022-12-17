@@ -18,9 +18,8 @@ export function Skill({ directionLeft, skill }: Props) {
         transition={{ duration: 1 }}
         whileInView={{ opacity: 1, x: 0 }}
         src={skill?.skillImage.url}
-        className="rounded-full border border-gray-500 
-        object-cover object-center w-20 h-20 lg:w-20 lg:-h-28
-     
+        className="rounded-full border border-gray-500 object-cover object-center 
+        w-12 h-12  lg:h-28 lg:w-28
         filter group-hover:grayscale-0 group-hover:bg-gray-500"
       />
       <div className="absolute opacity-0 group-hover:opacity-100 
