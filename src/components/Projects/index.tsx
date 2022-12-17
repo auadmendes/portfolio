@@ -49,7 +49,10 @@ export function Projects({ projects }: Props) {
             /> */}
             <div className="space-y-6 px-0 md:px-2 max-w-6xl">
               <h4 className="text-2xl lg:text-4xl font-semibold text-center">
-                <span className="underline decoration-cyan-400/20">Case Study {i + 1} of {projects.length}</span>
+                <span
+                  className="underline decoration-cyan-400/20 pr-4">
+                  Case Study {i + 1} of {projects.length}
+                </span>
                 <Link href={project.linkToBuild}>
                   {project.title}
                 </Link>
