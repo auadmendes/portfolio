@@ -25,7 +25,7 @@ export function Skills({ skills }: Props) {
         className="absolute top-36 uppercase tracking-[3px] text-gray-300 text-sm">Hover over a skill for current proficiency
       </h3>
 
-      <div className="grid grid-cols-5 gap-1 sm:grid-cols-2 lg:grid-cols-4 w-full">
+      <div className="grid grid-cols-5 items-center justify-center gap-1 sm:grid-cols-2 lg:grid-cols-4 w-full p-4">
         {skills?.map((skill) => (
           <Skill key={skill.id} skill={skill} />
         ))}
