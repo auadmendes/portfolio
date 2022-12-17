@@ -27,7 +27,7 @@ export function ContactMe() {
         Contact
       </h3>
 
-      <div className='flex flex-col w-screen relative h-[70%]'>
+      <div className='flex flex-col w-screen relative h-[80%]'>
 
         <h4 className="flex flex-col text-4xl font-semibold text-center mt-4">
           <span>I have got just what you need.</span>
@@ -55,7 +55,7 @@ export function ContactMe() {
 
         <div className='flex items-center justify-evenly w-full mx-auto'>
           <form onSubmit={handleSubmit(onSubmit)}
-            className='flex w-full justify-center flex-col space-y-2 px-2'>
+            className='flex w-full justify-center flex-col space-y-2 px-2 mb-24'>
 
             <div className='flex flex-col lg:flex-row items-center w-full space-x-1 space-y-1'>
               <input {...register('name')} className='contactInput w-full' placeholder='Name' type="text" />
