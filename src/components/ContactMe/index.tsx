@@ -27,7 +27,52 @@ export function ContactMe() {
         Contact
       </h3>
 
-      <div className="flex flex-col space-y-10 ">
+      <div className='flex flex-col w-screen relative h-[70%] border-2 border-yellow-200'>
+
+        <h4 className="flex flex-col text-4xl font-semibold text-center mt-4">
+          <span>I have got just what you need.</span>
+          <span className="decoration-cyan-400/50 underline">
+            Lets Talk.
+          </span>
+        </h4>
+
+        <div className='space-y-4 mt-8'>
+          <div className='flex items-center space-x-5 justify-center'>
+            <PhoneIcon className='text-cyan-400 h-7 w-7 animate-pulse' />
+            <p className='text-2xl'>+5527998642268</p>
+          </div>
+
+          <div className='flex items-center space-x-5 justify-center'>
+            <EnvelopeIcon className='text-cyan-400 h-7 w-7 animate-pulse' />
+            <p className='text-2xl'>luciano.auad@gmail.com</p>
+          </div>
+
+          <div className='flex items-center space-x-5 justify-center'>
+            <MapPinIcon className='text-cyan-400 h-7 w-7 animate-pulse' />
+            <p className='text-2xl'>Porto Canoa | Serra</p>
+          </div>
+        </div>
+
+        <div className='flex items-center justify-evenly mx-auto'>
+          <form onSubmit={handleSubmit(onSubmit)}
+            className='flex justify-center flex-col space-y-2 px-2'>
+
+            <div className='flex flex-row w-full space-x-1'>
+              <input {...register('name')} className='contactInput' placeholder='Name' type="text" />
+              <input {...register('email')} className='contactInput' placeholder='e-mail' type="text" />
+            </div>
+            <input {...register('subject')} className='contactInput' placeholder='Subject' type="text" />
+            <textarea {...register('message')} className='contactInput' placeholder='Message' />
+            <button className='bg-cyan-400 py-5 px-10 rounded-md text-gray-800 font-bold mb-64'>
+              Submit
+            </button>
+
+          </form>
+        </div>
+
+
+      </div>
+      {/* <div className="flex flex-col space-y-10 ">
         <h4 className="flex flex-col text-4xl font-semibold text-center">
           <span>I have got just what you need.</span>
           <span className="decoration-cyan-400/50 underline">
@@ -41,7 +86,6 @@ export function ContactMe() {
             <PhoneIcon className='text-cyan-400 h-7 w-7 animate-pulse' />
             <p className='text-2xl'>+5527998642268</p>
           </div>
-
 
           <div className='flex items-center space-x-5 justify-center'>
             <EnvelopeIcon className='text-cyan-400 h-7 w-7 animate-pulse' />
@@ -71,7 +115,7 @@ export function ContactMe() {
           </div>
         </div>
 
-      </div>
+      </div> */}
     </div>
   )
 }
