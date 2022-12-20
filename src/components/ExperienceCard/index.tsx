@@ -19,14 +19,14 @@ export function ExperienceCard({ experience }: Props) {
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-32 h-32 xl:w-[200px] xl:h-[200px] 
+        className="w-20 h-20 xl:w-[200px] xl:h-[200px] 
         transition-all object-cover object-center"
         src={experience?.companyImage.url}
         alt="logo"
       />
 
       <div className="px-0 md:px-10">
-        <h4 className="text-4xl rounded-md font-light">{experience.jobTitle}</h4>
+        <h4 className="text-lg lg:text-4xl rounded-md font-light">{experience.jobTitle}</h4>
         <p className="font-bold text-2xl mt-1">{experience.company}</p>
         <div className="flex space-x-2 my-2">
           {experience.experienceSkills.map((skill) => (
